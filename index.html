@@ -19,7 +19,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12 header text-center">
-				<h2 class="display-2">Scene It</h2>
+				<h2 class="display-2 text-dark">Scene It</h2>
 				<p>Search for movies you want to watch.</p>
 				<p>Save them to your list</p>
 			</div>
@@ -35,10 +35,19 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-12 results">
+			<div class="col-12 results" id="results">
 
 				<!-- MOVIES SHOW UP HERE! -->
-
+				<div class="movies-container" style="display:flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around">
+					<div class="movie card bg-light text-center" style="width: 15rem; margin-top: 1rem;">
+						<img class="card-img-top img-responsive" src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg" alt="The Dark Knight" />
+						<div class="card-body" style="margin:0 auto 0 auto">
+							<h5 class="card-title mt-1 movie-title">Title</h5>
+							<h6 class="card-subtitle mb-2 text-muted">Year</p>
+						</div>
+						<div class="card-footer bg-warning btn">Add to Watchlist</div>
+					</div>
+					
 			</div>
 		</div>
 
