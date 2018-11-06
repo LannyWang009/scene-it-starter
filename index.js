@@ -1,6 +1,14 @@
-var card = document.getElementById('results')
-card.innerHTML = renderMovies(movieData)
+var movieCards = document.getElementById('result')
 
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('loading contents')
+    movieCards.innerHTML = renderMovies(movieData) //build movie cards
+  
+    document.getElementById('search-form').addEventListener('input',searchMovies)
+    document.getElementById('search-form').addEventListener('submit',searchMovies)
+  })
+
+// render the movie cards
 function renderMovies (movies) {
     console.log('rendering...')
     var moviesHTML = [];
@@ -16,22 +24,41 @@ function renderMovies (movies) {
         </div>
         `
   })
-  console.info(movieData)
-  console.info(moviesHTML.join(''))
 
-  return `
+  var x = `
     <div class="movies-container col-12" id="results" style="display:flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around">
             ${moviesHTML.join('')} 
     </div>
     `
+    return x
     
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  console.log('loading contents')})
+//search movie function
+function searchMovies (e) {
+    e.preventDefault()
+    var searchString = e.target.value.toLowerCase();
+    var filterData = movieData.filter(function(movie){
+        var foundInName = movie.Title.toLowerCase().indexOf(searchString) > -1;
+        var foundInDate = movie.Year.toLowerCase().indexOf(searchString) > -1;
+        return foundInName || foundInDate;
+    })
 
-//   // document.getElementById('search-form').addEventListener('input',searchMovies)
-//   // document.getElementById('search-form').addEventListener('submit',searchMovies)
-// })
+    if (e.target.value === ''){
+        console.log('rendering movies')
+        movieCards.innerHTML = renderMovies(movieData)
+    } else {
+        console.log('rendering search')
+        // SpeechRecognitionResultList.log('rendering search')
+        movieCards.innerHTML = renderMovies(filterData) + `
+        <div class="col-12 text-center text-white-50 mt-5 mb-5 pt-3 pb-3" id="pageDivider">
+        <h2>Other Movies You Might Enjoy</h2>
+        </div>
+        ` + renderMovies(movieData)
+    }
+}
+
+
+
 
 
