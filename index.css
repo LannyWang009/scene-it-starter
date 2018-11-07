@@ -1,5 +1,5 @@
 body {
-	background-color: #B2E9FD;
+	background: linear-gradient(135deg, #e4f5fc 0%,#9371d6 33%,#9fd8ef 66%,#eaca12 100%);
 }
 
 .header h2 {
