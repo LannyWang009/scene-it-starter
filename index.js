@@ -67,7 +67,7 @@ function searchMovies (e) {
 
   var searchString = $('input')[0].value
   var urlEncodedSearchString = encodeURIComponent(searchString)
-  var movieSearchURL = 'http://www.omdbapi.com/?apikey=3430a78&s=' + urlEncodedSearchString
+  var movieSearchURL = 'https://www.omdbapi.com/?apikey=3430a78&s=' + urlEncodedSearchString
 
   $.getJSON(movieSearchURL, function (data) {
     console.log(data.Search)
